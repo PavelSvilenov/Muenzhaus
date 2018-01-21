@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Muenzhaus2" Class="LinqDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ITA-SERVER;Initial Catalog=Muenzhaus2;Persist Security Info=True;User ID=Muenzhaus2" SettingsObjectName="Muenzhaus2.Properties.Settings" SettingsPropertyName="Muenzhaus2ConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Auktion" Member="Auktion">
+    <Type Name="Auktion">
+      <Column Name="AuktionsNummer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Plz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ort" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Strasse" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Hausnummer" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="GebaeudeBezeichnung" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Datum" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Bemerkung" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Auktion_Lose" Member="Lose" ThisKey="AuktionsNummer" OtherKey="AuktionsNummer" Type="Lose" />
+      <Association Name="Auktion_Schriftliches_Gebot" Member="Schriftliches_Gebot" ThisKey="AuktionsNummer" OtherKey="AuktionsNummer" Type="Schriftliches_Gebot" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Zeile" Member="Zeile">
+    <Type Name="Zeile">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Kundennummer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuktionsNummer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Bemerkung" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Zeile_Gebot" Member="Gebot" ThisKey="Id" OtherKey="ZeileId" Type="Gebot" />
+      <Association Name="Schriftliches_Gebot_Zeile" Member="Schriftliches_Gebot" ThisKey="Kundennummer,AuktionsNummer" OtherKey="Kundennummer,AuktionsNummer" Type="Schriftliches_Gebot" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gebot" Member="Gebot">
+    <Type Name="Gebot">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ZeileId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LosId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuktionsNummer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoechstsGebot" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Zuschlag" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Zeile_Gebot" Member="Zeile" ThisKey="ZeileId" OtherKey="Id" Type="Zeile" IsForeignKey="true" />
+      <Association Name="Lose_Gebot" Member="Lose" ThisKey="LosId,AuktionsNummer" OtherKey="LosNummer,AuktionsNummer" Type="Lose" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kunden" Member="Kunden">
+    <Type Name="Kunden">
+      <Column Name="Kundennummer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Vorname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Plz" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ort" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Strasse" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Hausnummer" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Land" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Kunden_Lose" Member="Lose" ThisKey="Kundennummer" OtherKey="Kaeufer" Type="Lose" />
+      <Association Name="Kunden_Schriftliches_Gebot" Member="Schriftliches_Gebot" ThisKey="Kundennummer" OtherKey="Kundennummer" Type="Schriftliches_Gebot" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lose" Member="Lose">
+    <Type Name="Lose">
+      <Column Name="LosNummer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Bezeichnung" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Anmerkung" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="AuktionsNummer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Kaeufer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZuschlagPreis" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MindestGebot" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Valid" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Grund" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Mehrwertsteuer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Lose_Gebot" Member="Gebot" ThisKey="LosNummer,AuktionsNummer" OtherKey="LosId,AuktionsNummer" Type="Gebot" />
+      <Association Name="Auktion_Lose" Member="Auktion" ThisKey="AuktionsNummer" OtherKey="AuktionsNummer" Type="Auktion" IsForeignKey="true" />
+      <Association Name="Kunden_Lose" Member="Kunden" ThisKey="Kaeufer" OtherKey="Kundennummer" Type="Kunden" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schriftliches_Gebot" Member="Schriftliches_Gebot">
+    <Type Name="Schriftliches_Gebot">
+      <Column Name="Kundennummer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuktionsNummer" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Gesamtbetrag" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Schriftliches_Gebot_Zeile" Member="Zeile" ThisKey="Kundennummer,AuktionsNummer" OtherKey="Kundennummer,AuktionsNummer" Type="Zeile" />
+      <Association Name="Auktion_Schriftliches_Gebot" Member="Auktion" ThisKey="AuktionsNummer" OtherKey="AuktionsNummer" Type="Auktion" IsForeignKey="true" />
+      <Association Name="Kunden_Schriftliches_Gebot" Member="Kunden" ThisKey="Kundennummer" OtherKey="Kundennummer" Type="Kunden" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="Users">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Passwort" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Rechte" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

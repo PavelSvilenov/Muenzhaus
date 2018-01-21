@@ -1,0 +1,46 @@
+﻿<Window x:Class="Muenzhaus2.XML_Losdatei_einlesen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Muenzhaus2"
+        mc:Ignorable="d"
+        Title="XML-Losdatei einlesen" Height="353.532" Width="812.128" WindowStartupLocation="CenterScreen" Closing="Beenden">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="397*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnDateiAuswaehlen" Content="Xml-Datei auswählen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="128" Click="DateiAuswaehlen"/>
+        <Label x:Name="label" Content="ausgewählte Datei:" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPfad" HorizontalAlignment="Left" Margin="152,39,0,0" Content="keine Datei ausgewählt" VerticalAlignment="Top" Width="170"/>
+        <Label x:Name="label1" Content="Anzahl Lose:" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblAnzahlLose" HorizontalAlignment="Left" Margin="152,65,0,0"  VerticalAlignment="Top" Width="170" Content="0" />
+        <ListView x:Name="lvLose" Margin="10,96,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding LosNummer}">
+                        <GridViewColumnHeader Tag="LosNummer" Click="lvLosColumnHeader_Click" Content="Losnummer"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding AuktionsNummer}">
+                        <GridViewColumnHeader Tag="AuktionsNummer" Click="lvLosColumnHeader_Click" Content="Auktionsnummer"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="200" DisplayMemberBinding="{Binding Bezeichnung}">
+                        <GridViewColumnHeader Tag="Bezeichnung" Click="lvLosColumnHeader_Click" Content="Bezeichnung"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="300" DisplayMemberBinding="{Binding Anmerkung}">
+                        <GridViewColumnHeader Tag="Anmerkungen" Click="lvLosColumnHeader_Click" Content="Anmerkungen"/>
+                    </GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding MindestGebot}">
+                        <GridViewColumnHeader Tag="MindestGebot" Click="lvLosColumnHeader_Click" Content="Mindestgebot"/>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnDateiAuswaehlen_Copy" Content="Übernehmen" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="128" Click="Uebernehmen"/>
+        <Label x:Name="lblAnzeigeFDS" Content="Anzahl Fehlerhafter Datensätze:" HorizontalAlignment="Left" Margin="342,61,0,0" VerticalAlignment="Top" Width="198" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="Red"/>
+        <Label x:Name="lblAnzFDS" Content="Label" HorizontalAlignment="Left" Margin="560,61,0,0" VerticalAlignment="Top" FontWeight="Bold" FontStyle="Italic" Background="White" Foreground="Red"/>
+        <Button x:Name="button" Content="Schließen" HorizontalAlignment="Left" Margin="292,10,0,0" VerticalAlignment="Top" Width="153" Click="Abbrechen"/>
+
+    </Grid>
+</Window>

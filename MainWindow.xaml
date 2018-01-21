@@ -1,0 +1,25 @@
+﻿<Window x:Class="Muenzhaus2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Muenzhaus2"
+        mc:Ignorable="d"
+     Title="Numis AG" Height="444.021" Width="522.228" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Bitte Auktionsnummer wählen:" HorizontalAlignment="Left" Margin="85,163,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="btnErfassen" Content="Gebote erfassen" HorizontalAlignment="Left" Margin="264,213,0,0" VerticalAlignment="Top" Width="160" Click="btnErfassen_Click" Height="40" FontSize="16"/>
+        <Button x:Name="btnAuktion" Content="Live Auktion" HorizontalAlignment="Left" Margin="264,258,0,0" VerticalAlignment="Top" Width="160" RenderTransformOrigin="0.5,0.5" Click="btnAuktion_Click" Height="40" FontSize="16" />
+        <ComboBox x:Name="cbxAuktion" HorizontalAlignment="Left" Margin="327,167,0,0" VerticalAlignment="Top" Width="80" Height="30" FontSize="16"/>
+        <Button x:Name="btnLosdateiEinlesen" Content="XML-Losdatei einlesen" HorizontalAlignment="Left" Height="40" Margin="86,213,0,0" VerticalAlignment="Top" Width="160" FontSize="15" Click="btnLosdateiEinlesen_Click"/>
+        <Button x:Name="btnLoseAnzeigen" Content="Lose anzeigen" HorizontalAlignment="Left" Height="40" Margin="264,303,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="btnLoseAnzeigen_Click"/>
+        <Image x:Name="coin_auction_jpg" Height="120" Width="180" Margin="326,12,10,284" Source="Bilder/coin_auction.jpg" Stretch="Fill"/>
+        <Image x:Name="NumisLogo1_jpg" Margin="10,10,282,283" Source="Bilder/NumisLogo1.jpg" Stretch="Fill"/>
+        <Button x:Name="btnRechnung" Content="Rechnung erstellen" HorizontalAlignment="Left" Height="40" Margin="85,258,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="RechnungErstellen"/>
+        <Button x:Name="btnLosZurueck" Content="Los zurückziehen" HorizontalAlignment="Left" Height="40" Margin="86,303,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="btnLosZurueck_Click"/>
+        <Button x:Name="btnAuktionAnlegen" Content="Auktion anlegen" HorizontalAlignment="Left" Height="40" Margin="86,348,0,0" VerticalAlignment="Top" Width="160" FontSize="15" Click="AuktionAnlegen"/>
+
+        <Button x:Name="btnStatistik" Content="Statistik" HorizontalAlignment="Left" Height="40" Margin="264,348,0,0" VerticalAlignment="Top" Width="160" FontSize="16" Click="btnStatistik_Click" />
+
+    </Grid>
+</Window>

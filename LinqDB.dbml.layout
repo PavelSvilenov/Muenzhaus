@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 9.875" name="LinqDB">
+  <DataContextMoniker Name="/LinqDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="8ecc1d9c-d55b-433f-a462-7282e40981de" absoluteBounds="0.75, 4, 2, 2.347801106770834">
+      <DataClassMoniker Name="/LinqDBDataContext/Auktion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a03f24c3-501b-4d4d-9677-4a0da144e0d4" absoluteBounds="0.765, 4.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0841da1e-6d0c-472b-a773-6437f695df37" absoluteBounds="6.25, 4.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LinqDBDataContext/Zeile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5d3c2490-65b5-4d51-87fb-1026cce1873b" absoluteBounds="6.265, 4.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fc924986-04d2-4db7-a0f8-cdebc31542c2" absoluteBounds="9, 2.375, 2, 1.9631982421875">
+      <DataClassMoniker Name="/LinqDBDataContext/Gebot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e529014-d96f-42da-9282-417339db010f" absoluteBounds="9.015, 2.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e01ffdb7-5084-460f-951a-73eda8dcc7a4" absoluteBounds="0.75, 7.25, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LinqDBDataContext/Kunden" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7a166744-2064-4135-8777-167a81c3a9c0" absoluteBounds="0.765, 7.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b014c95e-51da-41e1-a6d7-b418e05643bf" absoluteBounds="3.5, 0.75, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/LinqDBDataContext/Lose" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30b0f434-0f70-46ce-bdc8-19b58d3a6fa5" absoluteBounds="3.515, 1.21, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7aa8f214-c119-47d7-ba2b-2c5381794872" absoluteBounds="3.5, 4.375, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/LinqDBDataContext/Schriftliches_Gebot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b33ff844-6dc2-4b61-933b-4351a6db6c6f" absoluteBounds="3.515, 4.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca43fa8c-83be-4728-abc9-4bf89381e981" absoluteBounds="3.75, 7.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/LinqDBDataContext/Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e24ab3d-2404-4fb9-8907-68c633d0527f" absoluteBounds="3.765, 7.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 5.16429768880208); (10 : 5.16429768880208); (10 : 4.3381982421875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Zeile/Zeile_Gebot" />
+      <nodes>
+        <classShapeMoniker Id="0841da1e-6d0c-472b-a773-6437f695df37" />
+        <classShapeMoniker Id="fc924986-04d2-4db7-a0f8-cdebc31542c2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 2.92870198567708); (9 : 2.92870198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Lose/Lose_Gebot" />
+      <nodes>
+        <classShapeMoniker Id="b014c95e-51da-41e1-a6d7-b418e05643bf" />
+        <classShapeMoniker Id="fc924986-04d2-4db7-a0f8-cdebc31542c2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 4); (1.75 : 2.11620198567708); (3.5 : 2.11620198567708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Auktion/Auktion_Lose" />
+      <nodes>
+        <classShapeMoniker Id="8ecc1d9c-d55b-433f-a462-7282e40981de" />
+        <classShapeMoniker Id="b014c95e-51da-41e1-a6d7-b418e05643bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.25153746153846); (3.125 : 6.87653746153846); (3.125 : 2.83055497851562); (3.5 : 2.83055497851562)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Kunden/Kunden_Lose" />
+      <nodes>
+        <classShapeMoniker Id="e01ffdb7-5084-460f-951a-73eda8dcc7a4" />
+        <classShapeMoniker Id="b014c95e-51da-41e1-a6d7-b418e05643bf" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.06814697265625); (6.25 : 5.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Schriftliches_Gebot/Schriftliches_Gebot_Zeile" />
+      <nodes>
+        <classShapeMoniker Id="7aa8f214-c119-47d7-ba2b-2c5381794872" />
+        <classShapeMoniker Id="0841da1e-6d0c-472b-a773-6437f695df37" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.06814697265625); (3.04166666666667 : 5.06814697265625 : JumpStart); (3.20833333333333 : 5.06814697265625 : JumpEnd); (3.5 : 5.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Auktion/Auktion_Schriftliches_Gebot" />
+      <nodes>
+        <classShapeMoniker Id="8ecc1d9c-d55b-433f-a462-7282e40981de" />
+        <classShapeMoniker Id="7aa8f214-c119-47d7-ba2b-2c5381794872" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 9.2444482421875); (3.59375 : 9.2444482421875); (3.59375 : 5.7612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDBDataContext/Kunden/Kunden_Schriftliches_Gebot" />
+      <nodes>
+        <classShapeMoniker Id="e01ffdb7-5084-460f-951a-73eda8dcc7a4" />
+        <classShapeMoniker Id="7aa8f214-c119-47d7-ba2b-2c5381794872" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

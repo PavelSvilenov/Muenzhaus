@@ -1,0 +1,33 @@
+﻿<Window x:Class="Muenzhaus2.AuktionAnlegen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Muenzhaus2"
+        mc:Ignorable="d"
+        Title="Neue Auktion Anlegen" Height="458.072" Width="442.418" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="lblAuktionsNr" Content="Auktionsnummer:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblGebaeudeBez" Content="Gebäudebezeichnung*:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblStrasse" Content="Strasse:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblHausnummer" Content="Hausnummer:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPlz" Content="Postleitzahl:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOrt" Content="Ort:" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDatum" Content="Datum:" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Bemerkung" Content="Bemerkung*:" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAuktionsNr" HorizontalAlignment="Left" Height="23" Margin="153,14,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="txtGebaeudeBez" HorizontalAlignment="Left" Height="23" Margin="153,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="txtStrasse" HorizontalAlignment="Left" Height="23" Margin="153,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="txtHausNr" HorizontalAlignment="Left" Height="23" Margin="153,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="txtPlz" HorizontalAlignment="Left" Height="23" Margin="153,138,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <TextBox x:Name="txtOrt" HorizontalAlignment="Left" Height="23" Margin="153,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198"/>
+        <DatePicker Name="dpDatum" HorizontalAlignment="Left" Margin="153,197,0,0" VerticalAlignment="Top" Text="Heute" Width="198"/>
+        <Button x:Name="btnAnlegen" Content="Anlegen" HorizontalAlignment="Left" Margin="153,351,0,0" VerticalAlignment="Top" Width="90" Click="NeueAuktionAnlegen"/>
+        <Button x:Name="btnAbbruch" Content="Abbrechen" HorizontalAlignment="Left" Margin="261,351,0,0" VerticalAlignment="Top" Width="90" Click="Abbrechen"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="40" Margin="16,258,0,0" TextWrapping="Wrap" Text="Mit * markierte Felder sind optional!" VerticalAlignment="Top" Width="125"/>
+        <TextBox x:Name="txtBemerkung" HorizontalAlignment="Left" Height="115" Margin="153,231,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="198"/>
+
+
+
+    </Grid>
+</Window>
